@@ -6,7 +6,7 @@ use warnings;
 use Apache::Constants qw(:common);
 use Apache::File;
 
-our $VERSION = '0.01';
+our $VERSION = '0.1.2';
 
 sub handler {
 	my $r = shift;
@@ -50,7 +50,7 @@ Apache::ParseControl - an apache module to control the parsing of server-side sc
 
 =head1 SYNOPSIS
 
-In a VirtualHost, Location, or Directory directive
+In a <Location> or <Directory> directive
 
 	SetHandler perl-script
 	PerlHandler Apache::ParseControl
@@ -74,6 +74,19 @@ response to the request.  This gives the client html source code, but not the
 actual source code to the application.  This module intervenes at the content
 handling stage of resource retrieval within Apache, reading the requested
 filename, and bypassing its default handler, returing the file as is, with no parsing whatsoever.
+
+=head1 RATIONALE
+
+I believe that this module will be beneficial to a large number
+of developers, webmasters, and sysadmins as it allows WebDAV
+to be viable for publishing for use on sites where server-side scripting languages
+are used.  This module was originally called Apache::NoParse, because
+all it did, and currently does, is return all files within the
+<Directory>, <Location>, or <Files> statement containing it as is, without
+parsing at.  I changed it to Apache::ParseControl because a near future release will allow
+the implementer to specify file types to control, and the depth of control, that is
+recursion into directories, etc.  This could partially be done with native Apache directives.
+I endeavor to make it easier and more granular using this module. Just wait, you'll see...
 
 
 =head1 AUTHOR INFORMATION

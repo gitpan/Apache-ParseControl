@@ -3,4 +3,5 @@ Revision history for Perl extension Apache::ParseControl.
 0.01  Wed Aug 15 18:52:28 2001
 	- original version; created by h2xs 1.20 with options
 		-XA -n Apache::ParseControl
-
+0.01.2	Thurs Aug 16 11:32:02 2001
+	- added more info to POD in ParseControl.pm
